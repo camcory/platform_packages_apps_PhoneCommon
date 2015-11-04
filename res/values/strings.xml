@@ -15,26 +15,6 @@
   ~ limitations under the License
   -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- The digit to be displayed on the 0 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_0_number">0</string>
-    <!-- The digit to be displayed on the 1 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_1_number">1</string>
-    <!-- The digit to be displayed on the 2 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_2_number">2</string>
-    <!-- The digit to be displayed on the 3 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_3_number">3</string>
-    <!-- The digit to be displayed on the 4 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_4_number">4</string>
-    <!-- The digit to be displayed on the 5 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_5_number">5</string>
-    <!-- The digit to be displayed on the 6 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_6_number">6</string>
-    <!-- The digit to be displayed on the 7 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_7_number">7</string>
-    <!-- The digit to be displayed on the 8 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_8_number">8</string>
-    <!-- The digit to be displayed on the 9 key of the dialpad [TRANSLATE FOR FA ONLY] [CHAR LIMIT=1]-->
-    <string name="dialpad_9_number">9</string>
     <!--  Do not translate. -->
     <string name="dialpad_star_number">*</string>
     <!--  Do not translate. -->
@@ -101,7 +81,7 @@
     <!-- In-call screen: call failure reason (incorrect username or password) -->
     <string name="callFailed_invalid_credentials">Incorrect username or password</string>
     <!-- In-call screen: call failure reason (calling from out of network is not allowed) -->
-    <string name="callFailed_out_of_network">Called from out-of-network</string>
+    <string name="callFailed_out_of_network">Out\u2011of\u2011network call</string>
     <!-- In-call screen: call failure reason (server error) -->
     <string name="callFailed_server_error">Server error. Try again later.</string>
     <!-- In-call screen: call failure reason (no signal) -->
@@ -113,20 +93,25 @@
     <!-- In-call screen: call failure reason (SIM error) -->
     <string name="callFailed_simError">No SIM or SIM error</string>
     <!-- In-call screen: call failure reason (out of service) -->
-    <string name="callFailed_outOfService">Mobile network not available</string>
+    <string name="callFailed_outOfService">Cellular network not available</string>
     <!-- In-call screen: call failure reason (call denied because of current FDN setting) -->
     <string name="callFailed_fdn_only">Outgoing calls are restricted by FDN.</string>
     <!-- In-call screen: call failure reason (call denied because call barring is on) -->
-    <string name="callFailed_cb_enabled">You can\'t make outgoing calls while call barring is on.</string>
+    <string name="callFailed_cb_enabled">Can\'t make outgoing calls while call barring is on.</string>
     <!-- In-call screen: call failure reason (call denied because domain specific access control is on) -->
-    <string name="callFailed_dsac_restricted">All calls are restricted by access control.</string>
+    <string name="callFailed_dsac_restricted">Calls restricted by access control.</string>
     <!-- In-call screen: call failure reason (Emergency call denied because domain specific access control is on)-->
-    <string name="callFailed_dsac_restricted_emergency">Emergency calls are restricted by access control.</string>
+    <string name="callFailed_dsac_restricted_emergency">Emergency calls restricted by access control.</string>
     <!-- In-call screen: call failure reason (Normal call denied because domain specific access control is on)-->
-    <string name="callFailed_dsac_restricted_normal">Normal calls are restricted by access control.</string>
+    <string name="callFailed_dsac_restricted_normal">Normal calls restricted by access control.</string>
     <!-- In-call screen: call failure reason (Dialed number doesn't exist) -->
     <string name="callFailed_unobtainable_number">Invalid number</string>
     <!-- In-call screen: message displayed in an error dialog -->
     <string name="incall_error_missing_voicemail_number">Voicemail number unknown.</string>
+
+    <!-- Choice in the ringtone picker.  If chosen, there will be silence instead of a ringtone played. -->
+    <string name="ringtone_silent">None</string>
+    <!-- If there is ever a ringtone set for some setting, but that ringtone can no longer be resolved, this is shown instead.  For example, if the ringtone was on a SD card and it had been removed, this would be shown for ringtones on that SD card. -->
+    <string name="ringtone_unknown">Unknown ringtone</string>
 
 </resources>

@@ -17,16 +17,6 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="dialpad_0_number" msgid="9125850639884993690">"0"</string>
-    <string name="dialpad_1_number" msgid="761747742902363751">"2"</string>
-    <string name="dialpad_2_number" msgid="4473872718353086388">"2"</string>
-    <string name="dialpad_3_number" msgid="2631223250001985194">"3"</string>
-    <string name="dialpad_4_number" msgid="5209564123577292452">"4"</string>
-    <string name="dialpad_5_number" msgid="5634625806116989866">"5"</string>
-    <string name="dialpad_6_number" msgid="799658410454143963">"6"</string>
-    <string name="dialpad_7_number" msgid="6998407956591315524">"7"</string>
-    <string name="dialpad_8_number" msgid="7956944519599432140">"8"</string>
-    <string name="dialpad_9_number" msgid="9074552572438193202">"9"</string>
     <string name="description_dialpad_overflow" msgid="4853244877599437286">"Chaguo zaidi"</string>
     <string name="description_delete_button" msgid="88733669653753441">"futa"</string>
     <string name="description_image_button_plus" msgid="7821061347207448362">"jumlisha"</string>
@@ -38,18 +28,20 @@
     <string name="callFailed_server_unreachable" msgid="4766146133909799091">"Seva haiwezi kufikiwa"</string>
     <string name="callFailed_number_unreachable" msgid="1243366438388873914">"Nambari haifikiwi"</string>
     <string name="callFailed_invalid_credentials" msgid="6115412108261660271">"Jina la mtumiaji au nenosiri sio sahihi"</string>
-    <string name="callFailed_out_of_network" msgid="3631228874861305456">"Ilipigwa kutoka nje ya mtandao"</string>
+    <string name="callFailed_out_of_network" msgid="6970725831030399542">"Simu ya nje ya mtandao"</string>
     <string name="callFailed_server_error" msgid="1391421251190688379">"Hitilafu ya seva: Tafadhali jaribu tena baadaye."</string>
     <string name="callFailed_noSignal" msgid="1758972490451048086">"Hakuna mtandao"</string>
     <string name="callFailed_limitExceeded" msgid="8796663077702587664">"Kiwango cha ACM kimezidishwa"</string>
     <string name="callFailed_powerOff" msgid="9179061328562234362">"Radio imezimwa"</string>
     <string name="callFailed_simError" msgid="3307159523385380486">"Hakuna SIM au kuna hitilafu ya SIM"</string>
-    <string name="callFailed_outOfService" msgid="6816891010755565002">"Mtandao wa simu za mkononi haupatikani"</string>
+    <string name="callFailed_outOfService" msgid="4535901975891969115">"Mtandao wa simu za mkononi haupatikani"</string>
     <string name="callFailed_fdn_only" msgid="1720606112619022283">"Simu zinazopigwa zimezuiwa na FDN"</string>
-    <string name="callFailed_cb_enabled" msgid="7567782725805609592">"Huwezi kupiga simu za kutoka wakati kupiga simu kumezuiwa."</string>
-    <string name="callFailed_dsac_restricted" msgid="524961119652214693">"Simu zote zimezuiwa na kidhibiti ufikiaji."</string>
-    <string name="callFailed_dsac_restricted_emergency" msgid="8465345184224474912">"Simu za dharura zimezuiwa na kidhibiti ufikiaji."</string>
-    <string name="callFailed_dsac_restricted_normal" msgid="6950825656495704410">"Simu za kawaida zimezuiwa na kidhibiti ufikiaji."</string>
+    <string name="callFailed_cb_enabled" msgid="4745550615395092407">"Haiwezi kupiga simu za kutoka wakati uzuiaji wa simu umewashwa."</string>
+    <string name="callFailed_dsac_restricted" msgid="4087941056515103695">"Simu zimewekewa vizuizi na kidhibiti cha idhini ya kufikia."</string>
+    <string name="callFailed_dsac_restricted_emergency" msgid="9031535611092828510">"Simu za dharura zimewekewa vizuizi na kidhibiti cha idhini ya kufikia."</string>
+    <string name="callFailed_dsac_restricted_normal" msgid="266947632344387216">"Simu za kawaida zimewekewa vizuizi na kidhibiti cha idhini ya kufikia."</string>
     <string name="callFailed_unobtainable_number" msgid="124621797631734731">"Nambari isiyo sahihi"</string>
     <string name="incall_error_missing_voicemail_number" msgid="3651090591812220874">"Nambari ya ujumbe wa sauti haijulikani."</string>
+    <string name="ringtone_silent" msgid="249805466934178869">"Hamna"</string>
+    <string name="ringtone_unknown" msgid="2303463713486734520">"Mlio usiojulikana"</string>
 </resources>

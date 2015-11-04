@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteException;
+import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Handler;
@@ -36,20 +37,8 @@ import java.lang.CharSequence;
 import java.lang.String;
 
 public class SettingsUtil {
-    /**
-     * Obtain the setting for "vibrate when ringing" setting.
-     *
-     * Watch out: if the setting is missing in the device, this will try obtaining the old
-     * "vibrate on ring" setting from AudioManager, and save the previous setting to the new one.
-     */
-    public static boolean getVibrateWhenRingingSetting(Context context) {
-        Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator == null || !vibrator.hasVibrator()) {
-            return false;
-        }
-        return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.VIBRATE_WHEN_RINGING, 0) != 0;
-    }
+    private static final String DEFAULT_NOTIFICATION_URI_STRING =
+            Settings.System.DEFAULT_NOTIFICATION_URI.toString();
 
     /**
      * Queries for a ringtone name, and sets the name using a handler.
@@ -58,15 +47,11 @@ public class SettingsUtil {
      * @param context The application context.
      * @param handler The handler, which takes the name of the ringtone as a String as a parameter.
      * @param type The type of sound.
-     * @param preference The preference being updated.
+     * @param key The key to the shared preferences entry being updated.
      * @param msg An integer identifying the message sent to the handler.
      */
     public static void updateRingtoneName(
-            Context context, Handler handler, int type, Preference preference, int msg) {
-        if (preference == null) {
-            return;
-        }
-
+            Context context, Handler handler, int type, String key, int msg) {
         final Uri ringtoneUri;
         boolean defaultRingtone = false;
         if (type == RingtoneManager.TYPE_RINGTONE) {
@@ -76,12 +61,12 @@ public class SettingsUtil {
         } else {
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             // For voicemail notifications, we use the value saved in Phone's shared preferences.
-            String uriString = prefs.getString(preference.getKey(), null);
+            String uriString = prefs.getString(key, DEFAULT_NOTIFICATION_URI_STRING);
             if (TextUtils.isEmpty(uriString)) {
                 // silent ringtone
                 ringtoneUri = null;
             } else {
-                if (uriString.equals(Settings.System.DEFAULT_NOTIFICATION_URI.toString())) {
+                if (uriString.equals(DEFAULT_NOTIFICATION_URI_STRING)) {
                     // If it turns out that the voicemail notification is set to the system
                     // default notification, we retrieve the actual URI to prevent it from showing
                     // up as "Unknown Ringtone".
@@ -92,23 +77,22 @@ public class SettingsUtil {
                 }
             }
         }
-        CharSequence summary = context.getString(com.android.internal.R.string.ringtone_unknown);
+        CharSequence summary = context.getString(R.string.ringtone_unknown);
         // Is it a silent ringtone?
         if (ringtoneUri == null) {
-            summary = context.getString(com.android.internal.R.string.ringtone_silent);
+            summary = context.getString(R.string.ringtone_silent);
         } else {
             // Fetch the ringtone title from the media provider
-            try {
-                Cursor cursor = context.getContentResolver().query(ringtoneUri,
-                        new String[] { MediaStore.Audio.Media.TITLE }, null, null, null);
-                if (cursor != null) {
-                    if (cursor.moveToFirst()) {
-                        summary = cursor.getString(0);
+            final Ringtone ringtone = RingtoneManager.getRingtone(context, ringtoneUri);
+            if (ringtone != null) {
+                try {
+                    final String title = ringtone.getTitle(context);
+                    if (!TextUtils.isEmpty(title)) {
+                        summary = title;
                     }
-                    cursor.close();
+                } catch (SQLiteException sqle) {
+                    // Unknown title for the ringtone
                 }
-            } catch (SQLiteException sqle) {
-                // Unknown title for the ringtone
             }
         }
         if (defaultRingtone) {
